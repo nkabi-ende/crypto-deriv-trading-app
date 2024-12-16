@@ -1,0 +1,40 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="Crypto Trading" />
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <!-- Market Overview -->
+            <Label text="Market Overview" class="text-xl font-bold mb-2" />
+            <GridLayout columns="*, *, *" rows="auto" class="mb-4">
+                <Label text="{{ btcPrice }}" col="0" class="text-center" />
+                <Label text="{{ ethPrice }}" col="1" class="text-center" />
+                <Label text="{{ dogePrice }}" col="2" class="text-center" />
+            </GridLayout>
+
+            <!-- Trading Form -->
+            <Label text="New Position" class="text-xl font-bold mb-2" />
+            <GridLayout rows="auto, auto, auto, auto" columns="*, *" class="mb-4">
+                <TextField hint="Symbol" text="{{ symbol }}" row="0" col="0" class="input" />
+                <TextField hint="Amount" text="{{ amount }}" row="0" col="1" class="input" keyboardType="number" />
+                
+                <TextField hint="Leverage" text="{{ leverage }}" row="1" col="0" class="input" keyboardType="number" />
+                <TextField hint="Stop Loss" text="{{ stopLoss }}" row="1" col="1" class="input" keyboardType="number" />
+                
+                <Button text="Long" tap="{{ onLongTap }}" row="2" col="0" class="btn btn-success" />
+                <Button text="Short" tap="{{ onShortTap }}" row="2" col="1" class="btn btn-danger" />
+            </GridLayout>
+
+            <!-- Open Positions -->
+            <Label text="Open Positions" class="text-xl font-bold mb-2" />
+            <ListView items="{{ positions }}" class="list-group" height="200">
+                <ListView.itemTemplate>
+                    <GridLayout columns="*, *, *" class="list-group-item">
+                        <Label text="{{ symbol }}" col="0" />
+                        <Label text="{{ side }}" col="1" />
+                        <Label text="{{ unrealizedPnL }}" col="2" />
+                    </GridLayout>
+                </ListView.itemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</Page>

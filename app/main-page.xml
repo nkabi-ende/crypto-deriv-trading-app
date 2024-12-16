@@ -1,0 +1,4 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="Crypto Derivatives Trading" icon="" />
+    <Frame defaultPage="views/trading/trading-page" />
+</Page>
